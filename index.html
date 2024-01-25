@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Dining Reviews</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light grey */
+            color: #333;
+        }
+
+        header {
+            background-color: #333; /* Dark grey */
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #333; /* Dark grey */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #444;
+        }
+
+        .review-form {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Georgia', serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .featured-review {
+            background-color: #f8f8f8;
+            border-left: 4px solid #333;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-review h3 {
+            margin-top: 0;
+        }
+
+        .featured-review p {
+            margin-bottom: 5px;
+        }
+
+        .featured-review span {
+            display: block;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Fine Dining Reviews</h1>
+    </header>
+
+    <div class="container">
+        <h2>Welcome to Our Fine Dining Review Platform</h2>
+        <p>Discover the best dining experiences, read reviews, and share your own culinary journeys with fellow gourmets.</p>
+
+        <button class="button" onclick="toggleReviewForm()">Write a Review</button>
+
+        <div class="review-form">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="review">Your Review:</label>
+                <textarea id="review" name="review" rows="4"></textarea>
+            </div>
+            <button class="button" onclick="submitReview()">Submit Review</button>
+        </div>
+
+        <div class="featured-review">
+            <h3>Featured Review: "An Unforgettable Experience"</h3>
+            <p>Last evening's dinner at The Gourmet Garden was nothing short of spectacular. The ambiance, the attention to detail, and the exquisite cuisine made for a memorable experience.</p>
+            <span>- Jessica Smith</span>
+        </div>
+
+        <!-- Additional sections can be added here -->
+
+    </div>
+
+    <script>
+        function toggleReviewForm() {
+            const reviewForm = document.querySelector('.review-form');
+            reviewForm.style.display = reviewForm.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function submitReview() {
+            const name = document.getElementById('name').value;
+            const review = document.getElementById('review').value;
+            if (name && review) {
+                // Implement logic to handle the review submission
+                alert(`Thank you, ${name}, for your review!`);
+                // Clear the form fields
+                document.getElementById('name').value = '';
+                document.getElementById('review').value = '';
+                toggleReviewForm();
+            } else {
+                alert('Please fill in all the fields.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
